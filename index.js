@@ -16,7 +16,7 @@ function capitalizarPrimeiraLetraDeCadaPalavra(str) {
     return str
         .split(' ')
         .map(palavra => {
-            if (palavra.toLowerCase() === "de") {
+            if (['de', 'do'].includes(palavra.toLowerCase() )) {
                 return palavra.toLowerCase(); // Não capitaliza "de"
             }
             return palavra.charAt(0).toUpperCase() + palavra.slice(1);
