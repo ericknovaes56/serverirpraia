@@ -14,9 +14,14 @@ app.get('/', (req, res) => {
 
 function capitalizarPrimeiraLetraDeCadaPalavra(str) {
     return str
-        .split(' ') // Divide a string em palavras
-        .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1)) // Capitaliza a primeira letra de cada palavra
-        .join(' '); // Junta as palavras novamente
+        .split(' ')
+        .map(palavra => {
+            if (palavra.toLowerCase() === "de") {
+                return palavra.toLowerCase(); // Não capitaliza "de"
+            }
+            return palavra.charAt(0).toUpperCase() + palavra.slice(1);
+        })
+        .join(' ');
 }
 
 app.get('/cidade/:cidade', async (req, res) => {
